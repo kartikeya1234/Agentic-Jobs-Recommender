@@ -5,6 +5,7 @@ import warnings
 from datetime import datetime
 
 from ai_cv_jobs_recommender.crew import AiCvJobsRecommender
+from crewai_tools import RagTool
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
@@ -18,8 +19,7 @@ def run():
     Run the crew.
     """
     inputs = {
-        'topic': 'AI LLMs',
-        'current_year': str(datetime.now().year)
+        'path_to_file': './CV_Kartikeya_Chitranshi.pdf',
     }
     
     try:
@@ -33,8 +33,7 @@ def train():
     Train the crew for a given number of iterations.
     """
     inputs = {
-        "topic": "AI LLMs",
-        'current_year': str(datetime.now().year)
+        'path_to_file': '../CV_Kartikeya_Chitranshi.pdf',
     }
     try:
         AiCvJobsRecommender().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
