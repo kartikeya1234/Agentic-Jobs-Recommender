@@ -19,11 +19,12 @@ def run():
     Run the crew.
     """
     inputs = {
-        'path_to_file': './CV_Kartikeya_Chitranshi.pdf',
+        'path_to_file': '/Users/kc/Downloads/CV_Kartikeya_Chitranshi.pdf',
     }
     
     try:
-        AiCvJobsRecommender().crew().kickoff(inputs=inputs)
+        job_recommender = AiCvJobsRecommender(path_to_file=inputs['path_to_file'])
+        job_recommender.crew().kickoff(inputs=inputs)
     except Exception as e:
         raise Exception(f"An error occurred while running the crew: {e}")
 
@@ -33,10 +34,12 @@ def train():
     Train the crew for a given number of iterations.
     """
     inputs = {
-        'path_to_file': '../CV_Kartikeya_Chitranshi.pdf',
+        'path_to_file': '/Users/kc/Downloads/CV_Kartikeya_Chitranshi.pdf',
     }
     try:
-        AiCvJobsRecommender().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
+        AiCvJobsRecommender(
+            path_to_file=inputs['path_to_file']
+        ).crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while training the crew: {e}")

@@ -8,19 +8,22 @@ from typing import List
 # https://docs.crewai.com/concepts/crews#example-crew-class-with-decorators
 
 @CrewBase
-class AiCvJobsRecommender():
+class AiCvJobsRecommender:
     """AiCvJobsRecommender crew"""
 
     agents: List[BaseAgent]
     tasks: List[Task]
     tools: List
-    path_to_file = './CV_Kartikeya_Chitranshi.pdf'
     # Learn more about YAML configuration files here:
     # Agents: https://docs.crewai.com/concepts/agents#yaml-configuration-recommended
     # Tasks: https://docs.crewai.com/concepts/tasks#yaml-configuration-recommended
     
     # If you would like to add tools to your agents, you can learn more about it here:
     # https://docs.crewai.com/concepts/agents#agent-tools
+
+    def __init__(self, path_to_file: str = None):
+        self.path_to_file = path_to_file
+
     @agent
     def cv_scanner(self) -> Agent:
         return Agent(

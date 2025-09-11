@@ -21,3 +21,9 @@ build-backend = "hatchling.build"
 
 [tool.crewai]
 type = "crew"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ai_cv_jobs_recommender"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/ai_cv_jobs_recommender"]
