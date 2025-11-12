@@ -1,0 +1,53 @@
+cv_analysis_task:
+  description: >
+    Analyze the uploaded CV document to extract comprehensive information about 
+    the candidate's professional background. Focus on identifying:
+    - Technical skills and proficiency levels
+    - Professional experience and years in each role
+    - Educational background and certifications
+    - Industry expertise and domain knowledge
+    - Career progression and achievements
+    - Programming languages, tools, and technologies
+    - Soft skills and leadership experience
+    - Geographic preferences or location constraints
+    Ensure all extracted information is factual and directly sourced from the CV document.
+  expected_output: >
+    A structured professional profile containing:
+    - Skills summary with proficiency indicators
+    - Experience timeline with roles and responsibilities
+    - Technical stack and tools expertise
+    - Education and certification details
+    - Career level assessment (junior/mid/senior/lead)
+    - Industry background and domain expertise
+    - Key achievements and quantifiable results
+    - Preferred work arrangements (if mentioned)
+  agent: cv_scanner
+
+job_search_task:
+  description: >
+    Using the candidate profile from the CV analysis, conduct comprehensive web 
+    searches to identify relevant job opportunities. Search across major job boards, 
+    company websites, and professional networks for positions that match the 
+    candidate's skills and experience level. Consider:
+    - Direct skill matches for technical requirements
+    - Experience level appropriate roles
+    - Industry-relevant positions
+    - Geographic location preferences
+    - Salary expectations based on experience
+    - Career growth opportunities
+    - Company culture fit indicators
+    Provide detailed explanations for why each job recommendation aligns with 
+    the candidate's background.
+  expected_output: >
+    A curated list of 8-12 job recommendations including:
+    - Job title and company name
+    - Job posting URL and application deadline
+    - Salary range (when available)
+    - Hiring Manager's name (when available)
+    - Required vs preferred qualifications comparison
+    - Match score explanation (why it fits the candidate)
+    - Company overview and culture insights
+    - Growth potential and career advancement opportunities
+    - Application tips specific to each role
+    Formatted as a structured report with clear sections for each job recommendation.
+  agent: job_search_agent
